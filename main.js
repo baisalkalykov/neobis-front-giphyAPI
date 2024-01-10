@@ -1,13 +1,14 @@
-const list = document.querySelector('.main__list')
+const list = document.querySelector('.card__list') 
 
-const searchInput = document.querySelector('.header__input')
+const searchInput = document.querySelector('.input')
 
-let timId
+
+let timId = null; 
 
 const getGiphyApi = (searchValue) => {
     const apiKey = '3CXKGF878f5RnkaeBBOoiNNXOZGrbT8c';
     const apiUrl = `https://api.giphy.com/v1/gifs/search?q=${searchValue}&api_key=${apiKey}&limit=10`;
-
+    
     list.innerHTML = '';
 
     fetch(apiUrl)
@@ -40,7 +41,7 @@ const getGiphyApi = (searchValue) => {
         });
 };
 
- timId;
+searchInput.value = 'monkey'; 
 
 searchInput.addEventListener('input', () => {
     clearTimeout(timId);
@@ -49,10 +50,9 @@ searchInput.addEventListener('input', () => {
     if (inputValue.length >= 3) {
         timId = setTimeout(() => {
             getGiphyApi(searchInput.value);
-        }, 800);
+        }, 700);
     }
 });
 
-
-
+getGiphyApi('monkey');
 
