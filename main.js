@@ -19,9 +19,9 @@ const getGiphyApi = (searchValue) => {
         })
         .then(data => {
             if (data && data.data) {
-                let arrData = data.data;
+                let gifData = data.data;
 
-                arrData.forEach(item => {
+                gifData.forEach(item => {
                     let li = document.createElement('li');
                     li.classList.add('item');
                     let img = document.createElement('img');
